@@ -20,8 +20,8 @@ Repositório criado para concentrar os códigos, anotações, desafios e testes 
 Foco em entender a tecnologia por trás do ecossistema, construindo uma API RESTful do zero absoluto, sem bibliotecas externas.
 - [x] Estrutura interna do Node.js, requisições, respostas e Headers.
 - [x] Manipulação de dados e fluxos assíncronos com **HTTP e Streams nativas**.
-- [ ] Diferentes tipos de parâmetros (Query, Route e Body parameters).
-- **Desafio Prático:** 🛠️ *CRUD de Tarefas* (Gerenciamento de tasks local).
+- [x] Diferentes tipos de parâmetros (Query, Route e Body parameters).
+- **Desafio Prático:** 🛠️ *CRUD de Tarefas* https://github.com/jvdlb-dev/crud-api-tasks (Gerenciamento de tasks local).
 
 ### 📂 Nível 2: Rotas e HTTP
 Transição para ferramentas modernas e padrões de mercado utilizados no dia a dia.
