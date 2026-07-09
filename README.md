@@ -6,8 +6,8 @@ Repositório criado para concentrar os códigos, anotações, desafios e testes 
 
 ## 📌 Status do Aprendizado
 
-- [ ] **Nível 1:** Fundamentos do Node.js `(Em andamento ⏳)`
-- [ ] **Nível 2:** Rotas e HTTP `(Não iniciado 🛑)`
+- [x] **Nível 1:** Fundamentos do Node.js `(Concluído)`
+- [ ] **Nível 2:** Rotas e HTTP `(Em andamento ⏳)`
 - [ ] **Nível 3:** Implementando o SOLID `(Não iniciado 🛑)`
 - [ ] **Nível 4:** Domain-Driven Design (DDD) `(Não iniciado 🛑)`
 - [ ] **Nível 5:** NestJS `(Não iniciado 🛑)`
@@ -25,10 +25,10 @@ Foco em entender a tecnologia por trás do ecossistema, construindo uma API REST
 
 ### 📂 Nível 2: Rotas e HTTP
 Transição para ferramentas modernas e padrões de mercado utilizados no dia a dia.
-- [ ] Construção de APIs REST utilizando o framework **Fastify** e **TypeScript**.
-- [ ] Validação de dados de entrada e esquemas com **Zod**.
-- [ ] Configuração de banco de dados SQL, migrações e queries com o query builder **Knex**.
-- [ ] Tratamento de Cookies, variáveis de ambiente (`.env`) e testes automatizados.
+- [x] Construção de APIs REST utilizando o framework **Fastify** e **TypeScript**.
+- [x] Validação de dados de entrada e esquemas com **Zod**.
+- [x] Configuração de banco de dados SQL, migrações e queries com o query builder **Knex**.
+- [x] Tratamento de Cookies, variáveis de ambiente (`.env`) e testes automatizados.
 - [ ] Deploy da aplicação em produção no **Render**.
 - **Desafio Prático:** 🛠️ *Daily Diet API* (Controle diário de dieta).
 
