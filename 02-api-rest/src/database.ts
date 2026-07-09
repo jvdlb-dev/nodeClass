@@ -1,7 +1,6 @@
-import 'dotenv/config'
 import setupKnex from 'knex'
 import type { Knex } from 'knex'
-import { env } from './env/index.js'
+import { env } from './env'
 
 export const config: Knex.Config = {
   client: 'sqlite',
@@ -14,5 +13,4 @@ export const config: Knex.Config = {
     directory: './db/migrations',
   },
 }
-
 export const knex = setupKnex(config)
