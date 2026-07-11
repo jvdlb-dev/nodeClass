@@ -6,8 +6,8 @@ Repositório criado para concentrar os códigos, anotações, desafios e testes 
 
 ## 📌 Status do Aprendizado
 
-- [x] **Nível 1:** Fundamentos do Node.js `(Concluído)`
-- [ ] **Nível 2:** Rotas e HTTP `(Concluído)`
+- [x] **Nível 1:** Fundamentos do Node.js `(Concluído🟢)`
+- [x] **Nível 2:** Rotas e HTTP `(Concluído🟢)`
 - [ ] **Nível 3:** Implementando o SOLID `(Em andamento ⏳)`
 - [ ] **Nível 4:** Domain-Driven Design (DDD) `(Não iniciado 🛑)`
 - [ ] **Nível 5:** NestJS `(Não iniciado 🛑)`
