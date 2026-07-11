@@ -7,8 +7,8 @@ Repositório criado para concentrar os códigos, anotações, desafios e testes 
 ## 📌 Status do Aprendizado
 
 - [x] **Nível 1:** Fundamentos do Node.js `(Concluído)`
-- [ ] **Nível 2:** Rotas e HTTP `(Em andamento ⏳)`
-- [ ] **Nível 3:** Implementando o SOLID `(Não iniciado 🛑)`
+- [ ] **Nível 2:** Rotas e HTTP `(Concluído)`
+- [ ] **Nível 3:** Implementando o SOLID `(Em andamento ⏳)`
 - [ ] **Nível 4:** Domain-Driven Design (DDD) `(Não iniciado 🛑)`
 - [ ] **Nível 5:** NestJS `(Não iniciado 🛑)`
 
@@ -29,8 +29,8 @@ Transição para ferramentas modernas e padrões de mercado utilizados no dia a 
 - [x] Validação de dados de entrada e esquemas com **Zod**.
 - [x] Configuração de banco de dados SQL, migrações e queries com o query builder **Knex**.
 - [x] Tratamento de Cookies, variáveis de ambiente (`.env`) e testes automatizados.
-- [ ] Deploy da aplicação em produção no **Render**.
-- **Desafio Prático:** 🛠️ *Daily Diet API* (Controle diário de dieta).
+- [x] Deploy da aplicação em produção no **Render**.
+- **Desafio Prático:** 🛠️ *Daily Diet API* https://github.com/jvdlb-dev/daily-diet-api (Controle diário de dieta).
 
 ### 📂 Nível 3: Implementando o SOLID
 Aplicação de padrões de design para criar sistemas testáveis e fracamente acoplados.
