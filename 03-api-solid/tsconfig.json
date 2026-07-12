@@ -7,14 +7,15 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "es2020",
-    "types": [],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "types": ["node"],
+    "lib": ["es2022"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "ignoreDeprecations": "6.0",
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
