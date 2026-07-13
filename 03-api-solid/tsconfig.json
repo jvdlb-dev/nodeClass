@@ -12,7 +12,6 @@
     "target": "es2022",
     "types": ["node"],
     "lib": ["es2022"],
-    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     },
