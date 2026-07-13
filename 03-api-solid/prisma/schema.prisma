@@ -13,9 +13,36 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String
+  email         String    @unique
+  password_hash String
+  created_at    DateTime  @default(now())
+  checkIns      CheckIn[]
 
   @@map("users")
+}
+
+model CheckIn {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at   DateTime  @default(now())
+  validated_at DateTime?
+  gym          Gym       @relation(fields: [gym_id], references: [id])
+  user         User      @relation(fields: [user_id], references: [id])
+  gym_id       String    @db.Uuid
+  user_id      String    @db.Uuid
+
+  @@map("check_ins")
+}
+
+model Gym {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title       String
+  description String?
+  phone       String?
+  latitude    Decimal   @db.Decimal(9, 6)
+  longitude   Decimal   @db.Decimal(9, 6)
+  checkIns    CheckIn[]
+
+  @@map("gyms")
 }
