@@ -8,7 +8,7 @@ class InverseNumberStream extends Transform {
       console.log(transformed)
 
       callback(null, Buffer.from(String(transformed)))
-    } 
+    }
 }
 
 
