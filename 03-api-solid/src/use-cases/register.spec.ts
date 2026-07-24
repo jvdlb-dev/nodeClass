@@ -34,7 +34,7 @@ describe('Register Use Case', () => {
       password: 'password123',
     })
 
-    expect(() => {
+    await expect(() => {
       return registerUseCase.execute({
         name: 'John Doe',
         email,
