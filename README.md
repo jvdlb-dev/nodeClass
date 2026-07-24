@@ -35,7 +35,7 @@ Transição para ferramentas modernas e padrões de mercado utilizados no dia a 
 ### 📂 Nível 3: Implementando o SOLID
 Aplicação de padrões de design para criar sistemas testáveis e fracamente acoplados.
 - [ ] Desenvolvimento de uma API para check-ins em academias usando os princípios do **SOLID** e **Design Patterns**.
-- [ ] Integração com banco de dados em ambiente de desenvolvimento via **Docker**.
+- [x] Integração com banco de dados em ambiente de desenvolvimento via **Docker**.
 - [ ] Autenticação segura com **JWT** e **Refresh Token**.
 - [ ] Controle de acesso baseado em papéis (**RBAC**).
 - **Desafio Prático:** 🛠️ *FindAFriend API* (Plataforma para adoção de animais).
