@@ -1,14 +1,27 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { CheckinUseCase } from '../check-in'
+import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gym-repository'
+import { Decimal } from '../../../generated/prisma/internal/prismaNamespaceBrowser'
 
 let checkInsRepository: InMemoryCheckInsRepository
+let gymsRepository: InMemoryGymsRepository
 let sut: CheckinUseCase
 
 describe('Check-in Use Case', () => {
   beforeEach(() => {
     checkInsRepository = new InMemoryCheckInsRepository()
-    sut = new CheckinUseCase(checkInsRepository)
+    gymsRepository = new InMemoryGymsRepository()
+    sut = new CheckinUseCase(checkInsRepository, gymsRepository)
+
+    gymsRepository.items.push({
+      id: 'gym-1',
+      title: 'JavaScript Gym',
+      description: '',
+      phone: '',
+      latitude: Decimal(0),
+      longitude: Decimal(0),
+    })
 
     vi.useFakeTimers()
   })
@@ -23,6 +36,8 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       userId: 'user-1',
       gymId: 'gym-1',
+      userLatitude: 0,
+      userLongitude: 0,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
@@ -34,12 +49,16 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       userId: 'user-1',
       gymId: 'gym-1',
+      userLatitude: 0,
+      userLongitude: 0,
     })
 
     await expect(() =>
       sut.execute({
         userId: 'user-1',
         gymId: 'gym-1',
+        userLatitude: 0,
+        userLongitude: 0,
       }),
     ).rejects.toBeInstanceOf(Error)
   })
@@ -50,6 +69,8 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       userId: 'user-1',
       gymId: 'gym-1',
+      userLatitude: 0,
+      userLongitude: 0,
     })
 
     vi.setSystemTime(new Date(2023, 0, 2, 8, 0, 0))
@@ -57,8 +78,32 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       userId: 'user-1',
       gymId: 'gym-1',
+      userLatitude: 0,
+      userLongitude: 0,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
+  })
+
+  it('should not be able to check in on distant gym', async () => {
+    vi.setSystemTime(new Date(2023, 0, 1, 8, 0, 0))
+
+    gymsRepository.items.push({
+      id: 'gym-2',
+      title: 'JavaScript Gym',
+      description: '',
+      phone: '',
+      latitude: Decimal(-16.614528),
+      longitude: Decimal(-49.284781),
+    })
+
+    await expect(() =>
+      sut.execute({
+        userId: 'user-1',
+        gymId: 'gym-2',
+        userLatitude: -16.6446894,
+        userLongitude: -49.334863,
+      }),
+    ).rejects.toBeInstanceOf(Error)
   })
 })
