@@ -1,6 +1,7 @@
 import type { CheckIn } from '../../generated/prisma/client'
 import type { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { LateCheckInValidationError } from './errors/late-checkin-validation-error'
 
 interface ValidateCheckinUseCaseRequest {
   checkInId: string
@@ -21,6 +22,13 @@ export class ValidateCheckinUseCase {
 
     if (!checkIn) {
       throw new ResourceNotFoundError()
+    }
+
+    const distanceInMinutesFromCreation =
+      (new Date().getTime() - checkIn.created_at.getTime()) / 1000 / 60
+
+    if (distanceInMinutesFromCreation > 20) {
+      throw new LateCheckInValidationError()
     }
 
     checkIn.validated_at = new Date()
