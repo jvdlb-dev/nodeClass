@@ -9,6 +9,7 @@ import { nearby } from './nearby'
 export async function gymsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwt)
 
+  app.get('/gyms', create)
   app.get('/gyms/nearby', nearby)
   app.get('/gyms/search', search)
 
