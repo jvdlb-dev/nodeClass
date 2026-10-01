@@ -17,7 +17,7 @@ describe('Create Gym', () => {
   it('should be able to create gym', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
-    const profileResponse = await request(app.server)
+    const response = await request(app.server)
       .post('/gyms')
       .set('Authorization', `Bearer ${token}`)
       .send({
@@ -28,6 +28,6 @@ describe('Create Gym', () => {
         longitude: -46.6388,
       })
 
-    expect(profileResponse.statusCode).toEqual(201)
+    expect(response.statusCode).toEqual(201)
   })
 })
