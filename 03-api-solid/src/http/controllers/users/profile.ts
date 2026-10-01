@@ -3,9 +3,10 @@ import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function profile(request: FastifyRequest, reply: FastifyReply) {
   const getUserProfile = makeGetUserProfileUseCase()
+  const { sub } = request.user as { sub: string }
 
   const { user } = await getUserProfile.execute({
-    userId: request.user.sub,
+    userId: sub,
   })
 
   return reply.status(200).send({
