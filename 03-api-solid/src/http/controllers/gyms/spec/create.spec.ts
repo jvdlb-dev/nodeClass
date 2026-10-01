@@ -14,11 +14,11 @@ describe('Create Gym', () => {
     await app.close()
   })
 
-  it('should be able to get create gym', async () => {
-    const { token, email } = await createAndAuthenticateUser(app)
+  it('should be able to create gym', async () => {
+    const { token } = await createAndAuthenticateUser(app)
 
     const profileResponse = await request(app.server)
-      .get('/gyms')
+      .post('/gyms')
       .set('Authorization', `Bearer ${token}`)
       .send({
         title: 'JavaScript Gym',
@@ -29,10 +29,5 @@ describe('Create Gym', () => {
       })
 
     expect(profileResponse.statusCode).toEqual(201)
-    expect(profileResponse.body.user).toEqual(
-      expect.objectContaining({
-        email,
-      }),
-    )
   })
 })
