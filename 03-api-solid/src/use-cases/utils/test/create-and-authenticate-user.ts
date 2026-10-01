@@ -2,13 +2,17 @@ import { randomUUID } from 'crypto'
 import type { FastifyInstance } from 'fastify/types/instance'
 import request from 'supertest'
 
-export async function createAndAuthenticateUser(app: FastifyInstance) {
+export async function createAndAuthenticateUser(
+  app: FastifyInstance,
+  role: 'ADMIN' | 'MEMBER' = 'ADMIN',
+) {
   const email = `john.doe-${randomUUID()}@example.com`
 
   await request(app.server).post('/users').send({
     name: 'John Doe',
     email,
     password: 'password123',
+    role,
   })
 
   const authResponse = await request(app.server).post('/sessions').send({
@@ -21,5 +25,6 @@ export async function createAndAuthenticateUser(app: FastifyInstance) {
   return {
     token,
     email,
+    role,
   }
 }
